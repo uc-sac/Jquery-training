@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function appendText() {
+  var txt1 = "<p>append</p>";      
+  var txt2 = "<p>prepend</p>";        
+  $("#me").append(txt1); 
+  $("#me").prepend(txt2);  
+
+  $("#me").after("after helo"); 
+  $("#me").before("before helo");  
+}
+</script>
+</head>
+<body>
+
+<p id="me">p.</p>
+<br>
+<button onclick="appendText()">test</button>
+
+</body>
+</html>
