@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.ancestors * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 10px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("span").parent().css({"color": "red", "border": "2px solid red"});
+    });
+    $("#btn2").click(function(){
+        $("span").parents().css({"color": "green", "border": "2px solid green"});
+    });
+    $("#btn3").click(function(){
+        $("span").parentsUntil("div").css({"color": "blue", "border": "2px solid blue"});
+    });
+    $("#btn4").click(function(){
+        $("span").children().css({"color": "yellow", "border": "2px solid yellow"});
+    });
+    $("#btn5").click(function(){
+        $("span").find("li").css({"color": "black", "border": "2px solid black"});
+    });
+    $("#btn6").click(function(){
+        $("#grandChild1").siblings().css({"color": "purple", "border": "2px solid purple"});
+    });
+    $("#btn7").click(function(){
+        $("#grandChild1").next().css({"color": "pink", "border": "2px solid pink"});
+    });
+    $("#btn8").click(function(){
+        $("ul").first().css({"color": "brown", "border": "2px solid brown"});
+    });
+    $("#btn9").click(function(){
+        $("ul").last().css({"color": "orange", "border": "2px solid orange"});
+    });
+    $("#btn10").click(function(){
+        $("ul").eq(1).css({"color": "violet", "border": "2px solid violet"});
+    });
+    $("#btn11").click(function(){
+        $("ul").not(".selectNot").css({"color": "DodgerBlue", "border": "2px solid DodgerBlue"});
+    });
+    $("#btn12").click(function(){
+        $("li").filter(".selectFilter").css({"color": "SlateBlue", "border": "2px solid SlateBlue"});
+    });
+  
+  
+});
+</script>
+</head>
+
+<body class="ancestors"> body (great-great-grandparent)
+  <div style="width:500px;">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span
+            <ul id="grandChild1">ul grand child 1  
+                <li>li great grand child
+                    </li></ul>
+            <ul>ul grand child 2
+                <li class="selectFilter">li great grand child</li></ul>
+            <ul class="selectNot">ul grand child 3
+                <li>li great grand child</li></ul>
+        </span>
+      </li>
+    </ul>   
+  </div>
+  <div style="display:flex ;">
+  <button id="btn1">parent of span red</button>
+  <button id="btn2">parents of span green</button>
+  <button id="btn3">parents of span until div blue</button>
+  <button id="btn4">childrens of span yellow</button>
+  <button id="btn5">find child li of span black</button>
+  <button id="btn6">siblings of ul grand child 1 purple</button>
+  <button id="btn7">next sibling of li grand child 1 pink</button>
+  <button id="btn8">first ul element brown</button>
+  <button id="btn9">last ul element orange</button>
+  <button id="btn10">eq index 1 of ul element violet</button>
+  <button id="btn11">not ul element DodgerBlue</button>
+  <button id="btn12">filter li element SlateBlue</button>
+</div>
+
+
+</body>
+
+</html>
